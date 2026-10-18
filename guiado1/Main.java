@@ -31,10 +31,38 @@ public class Main {
 
         System.out.println();
 
+        dispositivo1.setNombre(" Teclado ");
+        dispositivo1.setTipo(" Dispositivo de salida ");
 
+        dispositivo1.setNombre("");
+
+        System.out.println();
+        System.out.println("=== DESPUES DE MODIFICAR ===");
+        System.out.println("Nombre: " + dispositivo1.getNombre());
+        System.out.println("Tipo: " + dispositivo1.getTipo());
+
+        System.out.println();
+
+        dispositivo1.activar();
         dispositivo2.activar();
+        dispositivo2.desactivar();
 
-        
+        System.out.println();
+
+        dispositivo1.mostrarEstado();
         dispositivo2.mostrarEstado();
+
+        System.out.println();
+
+
+        System.out.println("=== DATOS FINALES ===");
+        System.out.println(dispositivo1.getNombre());
+        System.out.println(dispositivo1.getTipo());
+        System.out.println(dispositivo1.isActivo());
+
+        System.out.println(dispositivo2.getNombre());
+        System.out.println(dispositivo2.getTipo());
+        System.out.println(dispositivo2.isActivo());
+
     }
 }
