@@ -5,6 +5,18 @@ public class Dispositivo {
     private String nombre;
     private String tipo;
     private boolean activo;
+    private int id;
+
+    private static int contador = 0;
+
+    public Dispositivo(String nombre, String tipo) {
+        setNombre(nombre);
+        setTipo(tipo);
+        this.activo = false;
+
+        contador++;
+        this.id = contador;
+    }
 
 
     public Dispositivo() {
@@ -31,7 +43,11 @@ public class Dispositivo {
 
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        if (tipo != null && !tipo.trim().isEmpty()) {
+            this.tipo = tipo;
+        } else {
+            System.out.println("Error: el tipo no puede estar vacio.");
+        }
     }
 
 
@@ -40,11 +56,18 @@ public class Dispositivo {
     }
 
 
+
+
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void mostrarInformacion() {
+        System.out.println("ID: " + id);
         System.out.println("Nombre: " + nombre);
         System.out.println("Tipo: " + tipo);
         System.out.println("Activo: " + activo);
@@ -67,6 +90,10 @@ public class Dispositivo {
     public void desactivar() {
         activo = false;
         System.out.println(nombre + " ha sido desactivado.");
+    }
+
+    public static int getTotalCreados() {
+        return contador;
     }
 }
 
